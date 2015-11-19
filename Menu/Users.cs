@@ -1,14 +1,37 @@
 ﻿using System;
+using System.Runtime.Serialization;
 using System.Collections.Generic;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
 
 namespace Menu
 {
-	public class Users
+	[Serializable]
+    public class Users
 	{
         //DatabaseContext _context = new DatabaseContext();
 
         List<Person> users = new List<Person>();
+        public void WriteToFile()
+        {
+            
+                IFormatter formatter = new BinaryFormatter();
+                Stream st = new FileStream("DataBase.txt", FileMode.Create, FileAccess.Write, FileShare.None);
+                formatter.Serialize(st, users);
+                st.Close();
+           
+        }
 
+
+        public void ReadFromDB()
+        {
+            users.Clear();
+            IFormatter formatter = new BinaryFormatter();
+            Stream st = new FileStream("DataBase.txt", FileMode.Open, FileAccess.Read, FileShare.Read);
+            users = (List<Person>)formatter.Deserialize(st);
+            st.Close();
+
+        }
 		public void Add()
 		{
             //Person p = new Person();

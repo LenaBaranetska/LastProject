@@ -3,6 +3,7 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Menu
 {
+    [Serializable]
 	public class Person
 	{
         [Key]
