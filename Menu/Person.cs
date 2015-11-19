@@ -1,10 +1,13 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace Menu
 {
 	public class Person
 	{
-		public string Name { set; get; }
+        [Key]
+        public int Id { get; set; }
+        public string Name { set; get; }
 		public string Surname { set; get; }
 
 		public Person()

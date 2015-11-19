@@ -5,11 +5,15 @@ namespace Menu
 {
 	public class Users
 	{
-		List<Person> users = new List<Person>();
+        DatabaseContext _context = new DatabaseContext();
+
+        List<Person> users = new List<Person>();
 
 		public void Add()
 		{
-			users.Add(new Person());
+            Person p = new Person();
+            _context.Persons.Add(p);
+          //  users.Add(new Person());
         }
 
 		public void Edit()
@@ -88,10 +92,12 @@ namespace Menu
 
 		public void Print()
 		{
-			foreach(var person in users)
+			foreach(var person in _context.Persons)
 			{
 				person.Print();
 			}
+            Console.WriteLine("Please enter any key to continue");
+            Console.ReadKey();
 		}
 	}
 }
