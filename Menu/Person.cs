@@ -1,17 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Menu
 {
-	class Person
+	public class Person
 	{
-		string Name { set; get; }
-		string Surname { set; get; }
+		public string Name { set; get; }
+		public string Surname { set; get; }
 
-		Person()
+		public Person()
 		{
 			Console.WriteLine("input name: ");
 			Name = Console.ReadLine();
