@@ -23,7 +23,7 @@ namespace Menu
             int m;
             do
             {
-                Console.Clear();
+                Console.WriteLine("_________________");
                 Console.WriteLine("1.Add User");
                 Console.WriteLine("2.Remove User");
                 Console.WriteLine("3.Edit User");
@@ -31,6 +31,7 @@ namespace Menu
                 Console.WriteLine("0.Exit");
                 Console.Write("->_");
                 int.TryParse(Console.ReadLine(), out m);
+                Console.Clear();
 
                 switch (m)
                 {
